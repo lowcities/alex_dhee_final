@@ -221,9 +221,10 @@ NAVIGATION STYLE
     border-width: 1px;
     border-right: none;
     display: flex;
-    flex-direction: column;
+	flex-direction: column;
+	align-items: center;
     font-family: 'oswald_stencilbold', sans-serif;
-    font-size: 1.5rem;
+	font-size: 1.5rem;
     position: fixed;
     bottom: 35vh;
     right: 0;
@@ -245,10 +246,11 @@ NAVIGATION STYLE
 
   .nav-item {
     color: white;
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
     text-align: center;
     margin-bottom: 5px;
-    position: relative;
+	position: relative;
+	width: fit-content;
   }
 
   .nav-item a {
@@ -267,7 +269,6 @@ NAVIGATION STYLE
   position: absolute;
   pointer-events: none;
   left: 0;
-  animation: glitch-color linear 1s infinite ;
 }
 
 
@@ -552,76 +553,42 @@ FOOTER STYLE
   }
 
 @keyframes glitch {
-	5%,60% {
-		
-		transform: translate(.5px, 0);
+	2%,64%{
+		transform: translate(2px,0) skew(0deg);
 	  }
-	  10%,65% {
-		transform: translate(-.5px, 0);
+	  4%,60%{
+		transform: translate(-2px,0) skew(0deg);
 	  }
-	  30% {
-		color:rgba(1, 30, 243, 0.1);  
-		transform: translate(1px, 0) skew(-155deg);
-	  }
-	  32% {
-		color: transparent;
-		transform: translate(-1px, 0) skew(1deg);
-	  }
-	  40% {
-		  color: white;
-	  }
-	  70% {
-		transform: skew(75deg);
-	  }
-	  72% {
-		transform: skew(1deg)
-	  }
+	  62%{
+		transform: translate(0,0) skew(5deg); 
+	  }	
 	}
 
 @keyframes glitch-color {
-	0%,60%{
-		color:rgba(240, 13, 13, 0.5);
-		transform: translate(-2px, 1px);
+	2%,64%{
+		transform: translate(2px,1px);
 	  }
-	  10%,30%,80%,100% {
-		color: white;
+	  4%,60%{
+		transform: translate(-2px,0);
 	  }
-	  20%,100% {
-		color: rgba(199, 235, 133, 0.5);
-		transform: translate(2px, -1px);
-	  }
-	  25% {
-		transform: skew(-65deg);
-	  }
-	  27% {
-		transform: skew(1deg);
-	  }
-	  35%, 45%, 65% {
-		  color: transparent;
-	  }
-	  40%, 90% {
-		color:rgba(31, 8, 243, 0.5);
-		transform: translate(-6px, -2px);
+	  62%{
+		transform: translate(13px,-1px) skew(-13deg); 
 	  }
 	  
 	}
   
-	@keyframes glitch-up {
-		0%, 30% {
-		  color: rgba(199, 235, 133, 0.5);
-		}
-		15%, 58% {
-		  color:rgba(31, 8, 243, 0.5);
-		  transform: skew(-74deg);
-		}
-		50% {
-		  transform: translate(6px, 2px);
-		}
-		19%, 64% {
-		  color:rgba(240, 13, 13, 0.5);
-		  transform: skew(1deg);
-		}
+@keyframes glitch-up {
+	2%,64%{
+		transform: translate(-2px,0);
 	  }
+	  4%,60%{
+		transform: translate(-2px,0);
+	  }
+	  62%{
+		transform: translate(-22px,1px) skew(21deg); 
+	  }	
+	  }
+
   @keyframes turn-on{
 	0%{
 		-webkit-transform: scale(0.5,0.5) ;
@@ -743,7 +710,9 @@ FOOTER STYLE
     }
 
     .nav-item {
-        border-right: 1px solid white;
+		border-right: 1px solid white;
+		padding: 5px 10px;
+		/* margin: 5px 10px; */
     }
 
     .nav-item:last-child {
@@ -752,7 +721,7 @@ FOOTER STYLE
 
 	.nav-item:hover::before,
 	.nav-item:hover::after {
-		left: 15%;
+		left: 10px;
 	}
 
     .sticky-nav-bar {
