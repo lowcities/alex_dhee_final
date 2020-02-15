@@ -96,7 +96,7 @@ HEADER STYLE
   margin: 0 auto;
   position: relative;
   text-align: center;
-  width: 62%;
+  width: fit-content;
 }
 
 
@@ -554,14 +554,26 @@ FOOTER STYLE
 
 @keyframes glitch {
 	2%,64%{
+		
 		transform: translate(2px,0) skew(0deg);
 	  }
-	  4%,60%{
+	20% {
+		color: rgba(0,30,255,0.1);
+	}
+	23% {
+		color: white;
+	}  
+	4%,60%{
+		
 		transform: translate(-2px,0) skew(0deg);
 	  }
 	  62%{
+		color: rgba(255,0,80,0.1);
 		transform: translate(0,0) skew(5deg); 
 	  }	
+	  65% {
+		  color: white;
+	  }
 	}
 
 @keyframes glitch-color {
