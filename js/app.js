@@ -3,6 +3,7 @@ const MENUWRAPPER =document.querySelector('.menu-wrapper');
 const MENU = document.getElementById('menu');
 const NAVBUTTON = document.querySelector('.nav-button');
 const LINK = document.querySelectorAll('.nav-item');
+const SECTION = document.querySelector('.section');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
@@ -37,7 +38,6 @@ function mobileMenuToggle(e) {
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
     if(window.scrollY >= HEADER.offsetHeight) {
-        console.log("test");
         MENUWRAPPER.classList.add('sticky-nav-bar');
     } else  {
       MENUWRAPPER.classList.remove('sticky-nav-bar');
@@ -67,15 +67,20 @@ $('a[href*="#"]:not([href="#"])').click(function() {
         let target = $(this.hash);
         let navBarHeight = MENUWRAPPER.offsetHeight;
         let mobileNavHeight = NAVBUTTON.offsetHeight;
-        let scrollToPositionLarge = target.offset().top - navBarHeight;
-        // let scrollToPositionMobile = target.offset().top - mobileNavHeight;
+        let headerHeight = HEADER.offsetHeight;
+        let scrollToPositionLarge = headerHeight + navBarHeight;
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        console.log(target);
-           if (target.length && MENUWRAPPER.classList.contains('sticky-nav') ) {
-             $('html,body').animate({
+        let currentSection = target[0];
+        console.log(currentSection);
+        console.log(headerHeight);
+           if (target.length) {
+            //show content in focus and hide everything else
+            hideContent(currentSection);
+            //scroll to top of section
+            $('html,body').animate({
                  scrollTop: scrollToPositionLarge
             }, 1000);
-            console.log(target.offset().top)        
+            //check size to close menu if neccesary
             checkSize();
             return false; 
             }
@@ -83,14 +88,25 @@ $('a[href*="#"]:not([href="#"])').click(function() {
                 $('html,body').animate({
                  scrollTop: target.offset().top - 110
             }, 1000);
-            console.log(target.offset().top)    
+            hideContent(currentSection);    
             checkSize();
             return false;          
         }
     }
 });
 
-
+// function hides content not in focus
+const hideContent = (current) => {
+  let sections = document.querySelectorAll('.section');
+  let sectionArray = Array.prototype.slice.call(sections);
+  sectionArray.forEach(section => {
+    if(section === current) {
+      section.classList.remove('invisible');
+    } else {
+      section.classList.add('invisible');
+    }
+  });
+}
 
 
   

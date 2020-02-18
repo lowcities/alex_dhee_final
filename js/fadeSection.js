@@ -13,13 +13,14 @@ $('a[href*="#"]:not([href="#"])').click(function() {
         let currentSection = target[0];
         console.log(currentSection);
         if (target.length) {
-            
             for (let i = 0; i <= sectionArray.length; i++) {
                 if (sectionArray[i] !== currentSection) {
                     sectionArray[i].classList.add('invisible');
                 } else {
                     sectionArray[i].classList.remove('invisible');
+                    return;
                 }
+                
             }
         } 
         }
