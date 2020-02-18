@@ -68,24 +68,19 @@ $('a[href*="#"]:not([href="#"])').click(function() {
         let navBarHeight = MENUWRAPPER.offsetHeight;
         let mobileNavHeight = NAVBUTTON.offsetHeight;
         let scrollToPositionLarge = target.offset().top - navBarHeight;
-        let scrollToPositionMobile = target.offset().top - mobileNavHeight;
+        // let scrollToPositionMobile = target.offset().top - mobileNavHeight;
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        console.log(target);
            if (target.length && MENUWRAPPER.classList.contains('sticky-nav') ) {
              $('html,body').animate({
                  scrollTop: scrollToPositionLarge
             }, 1000);
             console.log(target.offset().top)        
             checkSize();
-            return false;
-        } else if (target.length && window.innerWidth <= 767) {
-            $('html,body').animate({
-                 scrollTop: scrollToPositionMobile
-            }, 1000);   
-            checkSize();
-            return false;
-        }
-          else {
-            $('html,body').animate({
+            return false; 
+            }
+            else {
+                $('html,body').animate({
                  scrollTop: target.offset().top - 110
             }, 1000);
             console.log(target.offset().top)    
@@ -94,6 +89,9 @@ $('a[href*="#"]:not([href="#"])').click(function() {
         }
     }
 });
+
+
+
 
   
 window.addEventListener('load', checkSize);

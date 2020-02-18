@@ -45,18 +45,24 @@ footer {
   text-align: center;
   }
 
-  .wrapper {
+.wrapper {
       display: flex;
       flex-direction: column;
-  }
+}
 
-  .content {
+.content {
     flex: 1 0 auto;
-  }
+}
 
-  .section {
+.section {
     margin: 9rem 1rem;
-  }
+    
+}
+
+.invisible {
+  display: hidden;
+}
+
 
 /*********************************************************
 HEADER STYLE
@@ -98,8 +104,6 @@ HEADER STYLE
   text-align: center;
   width: fit-content;
 }
-
-
 
   .crt::after {
 	content: " ";
@@ -304,42 +308,29 @@ NEWS STYLE
 
 .section-banner {
   
-  background: url("../img/header.jpeg") center no-repeat;
+  /* background: url("../img/header.jpeg") center no-repeat; */
   background-size: cover;
   margin: 0 auto;
   width: 90%;
   }
 
   .heading {
-    border: solid;
-    border-width: 5px;
+	border-bottom: solid 1px white;
     color: white;
-    background: rgba(1, 0, 0, 0.8);
-    mix-blend-mode: multiply; 
+    /* background: rgba(1, 0, 0, 0.8); */
+    /* mix-blend-mode: multiply;  */
     position: relative;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
-    font-size: 5rem;
-    text-shadow: 0 0 1px white
+    font-size: 2rem;
+    /* text-shadow: 0 0 1px white */
   }
 
-.heading {
-  border: solid;
-  border-width: 5px;
-  color: white;
-  background: rgba(1, 0, 0, 0.8);
-  mix-blend-mode: multiply; 
-  position: relative;
-  text-align: center;
-  margin: 0 auto;
-  font-size: 5rem;
-  text-shadow: 0 0 1px white
-}
 .heading span {
-  background: url("../img/gradient-dark-stripe-hz.png") bottom repeat-x;
+  background: url("../img/gradient-dark-stripe-hz.png") center repeat-x;
   display: block;
   width: 100%;
-  height: 125px;
+  height: 30px;
   position: absolute;
 }
 
