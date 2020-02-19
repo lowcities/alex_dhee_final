@@ -4,6 +4,7 @@ const MENU = document.getElementById('menu');
 const NAVBUTTON = document.querySelector('.nav-button');
 const LINK = document.querySelectorAll('.nav-item');
 const SECTION = document.querySelector('.section');
+const LOGO = document.querySelector('.logo');
 
 //Function to show or hide menu bar depending on screen size
 function checkSize() {
@@ -37,7 +38,9 @@ function mobileMenuToggle(e) {
 
 //creates a sticky nav bar when window is scrolled to the top of nav bar.
 function stickyNav(e) {
-    if(window.scrollY >= HEADER.offsetHeight) {
+  let totalHeight = HEADER.offsetHeight - MENUWRAPPER.offsetHeight;
+  console.log(totalHeight);
+    if(window.scrollY >= totalHeight) {
         MENUWRAPPER.classList.add('sticky-nav-bar');
     } else  {
       MENUWRAPPER.classList.remove('sticky-nav-bar');
@@ -46,7 +49,8 @@ function stickyNav(e) {
 
 //Creates a sticky mobile toggle button when window is scrolled to top of mobile menu button
 function stickyButton() {
-    if(window.innerWidth <= 725 && window.scrollY >= HEADER.offsetHeight) {
+  
+    if(window.scrollY >= HEADER.offsetHeight) {
       NAVBUTTON.classList.add('sticky-nav-button');
   //    menuBar.classList.add('sticky-mobile');
     }

@@ -88,11 +88,13 @@ HEADER STYLE
 
 
 .logo {
-    margin: 0 auto;
+    /* margin: 0 auto;
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 80%;
+    width: 80%; */
+    margin: 0 auto;
+  
 }
 
 .title {
@@ -141,15 +143,28 @@ HEADER STYLE
 /*********************************************************
 NAVIGATION STYLE
 **********************************************************/
+
+.menu-wrapper {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+	flex-direction: row;
+  align-items: center;
+  justify-items: baseline;
+  width: 100%;
+  z-index: 99;
+  transition: all 1s ease;
+}
+
 .nav-button {
     border: 10px black;
     display: inline-block;
     height: 50px;
     width: 50px;
-    margin: 5px 0 0 3px;
-    position: absolute;
+    margin: 0 0 5px 3px;
+    /* position: absolute;
     bottom: 0;
-    left: 0;
+    left: 0; */
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -332,6 +347,22 @@ NEWS STYLE
   width: 100%;
   height: 30px;
   position: absolute;
+}
+
+/*********************************************************
+VIDEO STYLE
+**********************************************************/ 
+
+.video-element {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.video-element iframe {
+  width: 60rem;
+  height: 30rem;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 
@@ -674,13 +705,13 @@ FOOTER STYLE
 @media screen and ( min-width: 725px ) {
 
     .menu-wrapper {
-        position: absolute;
-        bottom: 0;
-        display: flex;
-		flex-direction: row;
-		align-items: center;
-        width: 100%;
-        z-index: 99;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+		  flex-direction: row;
+		  align-items: center;
+      width: 100%;
+      z-index: 99;
     }
 
     .title {
